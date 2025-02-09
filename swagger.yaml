@@ -1,0 +1,68 @@
+# swagger.yaml
+
+openapi: 3.0.0
+info:
+  title: EcoTrack API
+  description: API para gerenciar ações sustentáveis e pontuação
+  version: 1.0.0
+paths:
+  /actions:
+    get:
+      summary: Lista todas as ações sustentáveis
+      responses:
+        '200':
+          description: Lista de ações
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    description:
+                      type: string
+                    category:
+                      type: string
+                    points:
+                      type: integer
+  /actions/{id}:
+    get:
+      summary: Obtém uma ação específica
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da ação
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detalhes da ação
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  category:
+                    type: string
+                  points:
+                    type: integer
+  /users/points:
+    get:
+      summary: Obtém os pontos do usuário
+      responses:
+        '200':
+          description: Pontuação do usuário
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  points:
+                    type: integer
