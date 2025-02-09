@@ -5,10 +5,10 @@ const { Pool } = require('pg'); // Conexão com o banco de dados
 
 const router = express.Router();
 const pool = new Pool({
-  user: 'seu_usuario',
+  user: 'postgres',
   host: 'localhost',
   database: 'eco_track',
-  password: 'sua_senha',
+  password: '1234',
   port: 5432, // Porta do PostgreSQL
 });
 
